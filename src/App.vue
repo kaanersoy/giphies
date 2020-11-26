@@ -36,7 +36,7 @@ export default {
   },
   mounted(){
     axios
-    .get(`http://api.giphy.com/v1/gifs/trending?api_key=JFd9gYTNz27c8QH4uuS3Aovtn5hp2B1s`)
+    .get(`https://api.giphy.com/v1/gifs/trending?api_key=JFd9gYTNz27c8QH4uuS3Aovtn5hp2B1s`)
     .then(res => (this.gifs = res.data.data), this.isLoading=false)
   }
 }
