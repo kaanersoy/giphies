@@ -39,4 +39,7 @@ export default {
 .header .title{width: 400px; margin: 0 auto;padding: 50px 0 10px 0;}
 .header .title img{width: 100%;}
 .header .title p{padding-top: 10px;font-size: 10px; text-align: center;}
+@media screen and (max-width: 1200px) {
+  .header .title{width: 320px;}
+}
 </style>
