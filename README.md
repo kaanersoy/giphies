@@ -1,6 +1,3 @@
+# Giphies Website Project
 
-## GIPHIES
-```
-Popular gifs for everyone
-```
-
+This is a just one-page website showing popular gifs of the day to you.
