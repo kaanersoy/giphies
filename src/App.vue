@@ -4,7 +4,7 @@
       <label class="night-switcher" @mousedown="nightSwitcher">
         <input type="checkbox">
         <div class="button">
-        </div>  
+        </div>
       </label>
     </div>
     <Header/>
@@ -22,6 +22,7 @@ export default {
     Header,
     Body
   },
+
   data: () => {
     return {
       gifs: null,
@@ -29,14 +30,17 @@ export default {
       nightMode: false,
     }
   },
+
   methods: {
     nightSwitcher: function(){
-      this.nightMode ? this.nightMode = false : this.nightMode = true;
+      this.nightMode = !this.nightMode;
     }
   },
+
   mounted(){
+    const apiKey = process.env.VUE_APP_API_KEY;
     axios
-    .get(`https://api.giphy.com/v1/gifs/trending?api_key=JFd9gYTNz27c8QH4uuS3Aovtn5hp2B1s`)
+    .get(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}`)
     .then(res => (this.gifs = res.data.data), this.isLoading=false)
   }
 }
@@ -49,7 +53,6 @@ export default {
 }
 img{
   display: block;
-  vertical-align: center;
 }
 :root{
   --body-background: white;
@@ -109,4 +112,5 @@ img{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 </style>
