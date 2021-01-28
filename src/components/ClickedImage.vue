@@ -87,11 +87,11 @@ export default {
         border: none;
         background-color: #fef0ae;
         filter: drop-shadow(0px 0px 0.25rem  rgba(0, 0, 0, 0.274));
-        font-size: 20px;
+        font-size: 15px;
     }
     .clicked-wrapper .clicked-item .clicked-content{}
-    .clicked-wrapper .clicked-item .clicked-content p{text-align: center; width: 80%;margin: 0 auto;display: block;width: 100%;background-color: #fef0ae;padding: 10px 0;}
-    .clicked-wrapper .clicked-item .clicked-content a{background: #fef0ae;display: block; width: 100%; text-align: center;color: #000;padding: 20px;font-size: 25px;}
+    .clicked-wrapper .clicked-item .clicked-content p{text-align: center; width: 80%;margin: 0 auto;display: block;width: 100%;background-color: #fef0ae;padding: 10px 0;font-size: 14px;}
+    .clicked-wrapper .clicked-item .clicked-content a{background: #fef0ae;display: block; width: 100%; text-align: center;color: #000;padding: 20px;font-size: 15px;}
 
     @media screen and (max-width: 414px) {
         .clicked-wrapper .clicked-item{

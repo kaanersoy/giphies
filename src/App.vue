@@ -47,12 +47,12 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'VT323', monospace;
+  font-family: 'Press Start 2P', cursive;
   font-size: 18px;
 }
 img{
