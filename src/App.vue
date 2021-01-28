@@ -27,7 +27,7 @@ export default {
     return {
       gifs: null,
       isLoading: true,
-      nightMode: false,
+      nightMode: false
     }
   },
 
@@ -47,16 +47,20 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
 }
 img{
   display: block;
 }
 :root{
-  --body-background: white;
-  --night-body-background: black;
+  --body-background: #fffadf;
+  --night-body-background: #000916;
 }
 #app{
   background: var(--body-background);
@@ -99,7 +103,7 @@ img{
   height: 0;
 }
 .night-switcher input:checked ~ .button{
-  transform: translateX(20px);
+  transform: translateX(14px);
 }
 .floating-button.dark .night-switcher{
   background: white;

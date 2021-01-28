@@ -3,10 +3,11 @@
       <ul class="gifs">
         <li v-for="gif in gifs" :key="gif.id" @click="isItemClicked">
             <img :src="ghostImage" :id="'ghost-' + gif.id" v-bind:class="{ invisible : loadedGifs.includes(gif.id) }" >
-            <img :src="gif.images.fixed_height.url" @load="pushLoadedGif" :alt="gif.id" :id="gif.id">
+            <img :src="gif.images.fixed_width_small.url" @load="pushLoadedGif" :alt="gif.id" :id="gif.id">
         </li>
       </ul>
-      <ClickedImage v-if="clickedActive" :source="ghostImage" :name="'sample'" :url="'https://vuejs.org/v2/guide/components-props.html'" />
+      <!-- <ClickedImage v-if="clickedActive" :source="ghostImage" :name="'clickedItemName'" :url="'ghostImage'" @clicked="onClickChild"/> -->
+      <ClickedImage v-if="clickedActive" :source="clickedItemUrl" :name="clickedItemName" :url="clickedItemUrl" :download="clickedItemDownloadUrl"  @clicked="onClickChild"/>
   </div>
 </template>
 
@@ -30,6 +31,7 @@ export default {
         clickedItemId: null,
         clickedItemUrl: null,
         clickedItemName: null,
+        clickedItemDownloadUrl: null
       }
     },
     methods: {
@@ -37,14 +39,15 @@ export default {
         this.loadedGifs.push(e.target.id);
       },
       isItemClicked: async function(e){
-        const apiKey = process.env.VUE_APP_API_KEY;
         this.clickedItemId = e.target.id;
-        const response = await fetch(`https://api.giphy.com/v1/gifs/${this.clickedItemId}?api_key=${apiKey}`);
-        if(response.data){
-          console.log(response);
-        }else{
-          console.log("something wrong😥");
-        }
+        const selectedGif = this.gifs.filter(gif => gif.id == this.clickedItemId)[0];
+        this.clickedActive = true;
+        this.clickedItemUrl = selectedGif.images.fixed_height.url;
+        this.clickedItemName = selectedGif.title;
+        this.clickedItemDownloadUrl = selectedGif.images.fixed_width.url;
+      },
+      onClickChild (isActive) {
+        this.clickedActive = isActive;
       }
     }
 }
@@ -53,7 +56,7 @@ export default {
 <style>
 .container{max-width: 1400px; width: 80%;margin: 0 auto;padding-bottom: 100px;}
 .gifs{ column-count: 4; display: block;}
-.gifs li{list-style: none; margin-bottom: 30px;}
+.gifs li{list-style: none; margin-bottom: 30px;border-radius: 5px;overflow: hidden;}
 .gifs li img{width: 100%;}
 @media screen and (max-width: 1200px) {
   .gifs{column-count: 2;}
