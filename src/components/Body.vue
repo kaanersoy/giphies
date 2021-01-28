@@ -57,11 +57,16 @@ export default {
       },
       isItemClicked: async function(e){
         this.clickedItemId = e.target.id;
-        const selectedGif = this.gifs.filter(gif => gif.id == this.clickedItemId)[0];
-        this.clickedActive = true;
-        this.clickedItemUrl = selectedGif.images.fixed_height.url;
-        this.clickedItemName = selectedGif.title;
-        this.clickedItemDownloadUrl = selectedGif.images.fixed_width.url;
+        var selectedGif = null;
+        if(this.search == "" || this.search == null){
+          selectedGif = this.gifs.filter(gif => gif.id == this.clickedItemId)[0];
+        }else{
+          selectedGif = this.searchGifs.filter(gif => gif.id == this.clickedItemId)[0];
+        }
+          this.clickedActive = true;
+          this.clickedItemUrl = selectedGif.images.fixed_height.url;
+          this.clickedItemName = selectedGif.title;
+          this.clickedItemDownloadUrl = selectedGif.images.fixed_width.url;
       },
       onClickChild (isActive) {
         this.clickedActive = isActive;

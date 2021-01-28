@@ -8,7 +8,7 @@
       </label>
     </div>
     <Header/>
-    <Body :gifs="this.gifs"/>
+    <Body :gifs="this.gifs" />
   </div>
 </template>
 
