@@ -18,7 +18,7 @@ A youtube tutorial here: [GIPHIES | GIF Search Service created by Kaan Ersoy](ht
 
 - `cd projectpath && npm install`
 
-- Pass your **GIPHY API KEY** like: 
+- Pass your **GIPHY API KEY** to `.env` file like: 
 `VUE_APP_API_KEY=1231ad3a1wa3d1` (It is a example key)
 
 - `npm run serve` (for dev mode)
